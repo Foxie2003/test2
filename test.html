@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/QuanAo/LoadQuanAo.js"></script>
+    <style>
+        body {
+            background: #fff;
+            max-width: 100%;
+            overflow-y: scroll;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+            float: left;
+        }
+
+        @media only screen and (max-width: 766px) {
+            .res-s-display {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            /* For tablets: */
+
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            .res-display-block {
+                display: block;
+            }
+
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 20%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        .top-banner {
+            height: 30px;
+            line-height: 30px;
+            background-color: rgb(71, 68, 68);
+            color: white;
+        }
+
+        .top-banner ul {
+            padding-top: 2px;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .top-banner li {
+            margin-right: 35px;
+            border-right: 1em soild white;
+        }
+
+        .top-banner a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: left;
+            width: 100%;
+            background-color: rgb(47, 44, 44);
+            line-height: 50px;
+            height: 80px;
+        }
+
+        .logo {
+            width: 20%;
+            float: right;
+            height: 100%;
+            margin-left: 150px;
+            margin-top: 0.3%;
+        }
+
+        .logo img {
+
+            float: right;
+            width: 90%;
+        }
+
+        .search-sp {
+            margin-top: 1%;
+            width: 40%;
+            margin-left: 6%;
+        }
+
+        .search-sp button {
+            border: none;
+            width: 42.1px;
+            height: 42.px;
+            background-color: orange;
+            color: white;
+        }
+
+        .search-sp input {
+            line-height: 40px;
+            font-size: 12px;
+            /* border-radius: 7px; */
+            color: grey;
+            width: 320px;
+        }
+
+        .dangnhap-gh {
+            float: left;
+            margin-top: 0.1%;
+        }
+
+        .dangnhap-gh ul {
+            list-style: none;
+        }
+
+        .dangnhap-gh li {
+            margin-bottom: -15px;
+        }
+
+        .dangnhap-gh a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header,
+        nav {
+            /* canh giữa cách lề mỗi bên 10% */
+            margin-left: 50px;
+            width: 100%;
+
+        }
+
+        nav {
+            border-radius: 5px;
+            /* bo góc */
+            width: 20%;
+
+        }
+
+        nav ul {
+            margin-left: 80px;
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            background-color: rgb(248, 164, 9);
+        }
+
+        nav>ul li {
+            list-style: none;
+            /* bỏ dấu chấm mặc định của li */
+            /* kẻ đường bên trái và bên phải của li */
+            /* border-right: 1px solid #333;
+     border-left:1px solid #333; */
+            border: 1px soild #333;
+            background-color: white;
+            border: 1px soild #333;
+
+        }
+
+        nav>ul li a {
+            border: 1px soild #333;
+            display: block;
+            padding: 0 25px;
+            line-height: 50px;
+            color: orange;
+            text-decoration: none;
+            margin-bottom: 1px soild #333;
+        }
+
+        nav>ul li a {
+
+            border: 1px solid #d4cfcf;
+        }
+
+        /* Khi hover đến li, tô màu cho thẻ a */
+        nav ul li:hover>a {
+
+            opacity: .7;
+            color: black;
+        }
+
+        /*menu con*/
+        /*Ẩn các menu con cấp 1,2,3*/
+        nav li ul {
+            display: none;
+            /* min-width: 350px; */
+            position: absolute;
+        }
+
+        /*khi hover thì hiện menu con*/
+        nav li:hover>ul {
+            display: block;
+        }
+
+        nav>ul li>ul {
+            margin-left: 215px;
+            margin-top: -50px;
+        }
+
+        .title-block.object:before {
+            content: "";
+            position: absolute;
+            left: 10%;
+            top: 25px;
+            right: 0;
+            bottom: auto;
+            width: 80%;
+            height: 1px;
+            background: rgb(237, 177, 64);
+
+            z-index: -1;
+        }
+
+        .title-block {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+            text-align: center;
+            margin-top: 30%;
+        }
+
+        .title-block .wrap-content {
+            display: inline-block;
+            padding: 0 15px;
+        }
+
+        .title-block .title-group {
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: normal;
+            font-size: 20px;
+            padding: 10px;
+            background: #fff;
+            color: orange;
+            display: inline-block;
+        }
+
+        .phodom {
+            float: left;
+            margin-left: 5%;
+        }
+
+        #user {
+            content: "";
+        }
+
+        #div-login {
+            display: none;
+            line-height: 25.6px;
+            text-align: left;
+            width: 100%;
+            position: fixed;
+            height: 100%;
+            z-index: 1000;
+            background-color: rgba(5, 5, 5, 0.7);
+        }
+
+        #form-login {
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 10%;
+            background-color: rgba(255, 255, 255, 1);
+            line-height: 200%;
+            height: 55%;
+            z-index: 1000;
+        }
+
+        .gh-login {
+            /* padding-left: 15%; */
+            /* margin-right: 15%; */
+            margin-top: 5%;
+            width: 100%;
+            background-color: white;
+            line-height: 200%;
+        }
+
+        .gd-login input {
+            display: block;
+            width: 450px;
+            padding: 10px;
+            padding-right: 0px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+
+        }
+
+        .gd-login label {
+            width: 100%;
+            text-align: left;
+        }
+
+        .gd-login button {
+            background-color: rgb(27, 26, 26);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            float: left;
+            margin-top: -20px;
+
+        }
+
+        .gd-login h2 {
+            margin-top: 1%;
+            font: 2em sans-serif;
+            margin-bottom: 3%;
+            word-wrap: break-word;
+        }
+
+        .close-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            background-color: #999;
+        }
+
+        /* sản phẩm */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .silde {
+            width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        .silde-div {
+            width: 100%;
+            height: 100%;
+        }
+
+        .sp {
+            margin-right: 20px
+        }
+
+        .silde-img img {
+            width: 50%;
+        }
+
+        .btn-left {
+            position: absolute;
+            left: 30px;
+            top: 40%;
+            line-height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            font-size: 30px;
+            background-color: none;
+            opacity: 1;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            margin-left: -6%;
+        }
+
+        .btn-left:hover {
+            opacity: 1;
+        }
+
+        .btn-right:hover {
+            opacity: 1;
+        }
+
+        .btn-right {
+            text-align: center;
+            position: absolute;
+            right: 30px;
+            top: 40%;
+            line-height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            font-size: 30px;
+            background-color: none;
+            opacity: 1;
+            color: black;
+            cursor: pointer;
+            margin-right: -6%;
+        }
+
+        .sanpham {
+            width: 200px;
+            height: auto;
+            margin-top: 10px;
+            background-color: white;
+            margin-left: 15px;
+        }
+
+        .sanpham img {
+            width: 100%;
+        }
+
+        .chon-mau button {
+            background-color: white;
+            color: green;
+            height: 30px;
+            width: 30px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .chon-size button {
+            background-color: white;
+            height: 30px;
+            width: 30px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: black;
+        }
+
+        .chon-mau button.clicked {
+            border: 2px solid green;
+        }
+
+        .chon-size button.clicked {
+            border: 4px solid rgb(50, 232, 50);
+            color: green;
+        }
+
+        .chon-mau button img {
+            border-radius: 3px;
+        }
+
+        .ten-sanpham {
+            color: rgb(257, 151, 66);
+            font-size: 14px;
+            font-weight: lighter;
+            margin-top: 10px;
+        }
+
+        .gia-tien {
+            display: block;
+            margin: 5px 0px 20px;
+            font-weight: bold;
+        }
+
+        .combobox-sanpham {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: gray;
+        }
+
+        .quick-view {
+            display: none;
+            background-color: black;
+            position: absolute;
+            color: #fff;
+            width: 13.8%;
+            font-weight: bold;
+            text-align: center;
+            line-height: 38px;
+            margin-top: -2.9%;
+            opacity: 0.5;
+        }
+
+        .sanpham .img-sanpham:hover .quick-view {
+            display: block;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        .panel {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        .giay {
+            height: 450px
+        }
+
+        .ao {
+            width: 270px;
+            height: 500px-Import;
+        }
+
+        .ao .quick-view {
+            width: 18.25%;
+        }
+
+        .bong {
+            display: flex;
+            /* flex-direction: column; */
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .bong button {
+            font-size: 15px;
+            color: black;
+            line-height: 25.6px;
+            padding: 0px 10px;
+            margin-left: 5px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .bong button.clicked {
+            border: 2px solid green;
+            color: green !important;
+        }
+
+        .bongr {
+            width: 13.5% !important;
+        }
+
+        .refesh {
+            display: block;
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border-radius: 50%;
+            border: none;
+        }
+
+        .bottom-footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            width: 90%;
+            margin-left: 5%;
+            /* margin-right: 5%; */
+        }
+
+        .bottom-footer ul {
+            margin-left: 50px;
+            list-style: none;
+            line-height: 16.8px;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .bottom-footer ul span {
+            font-weight: bold;
+        }
+
+        .bottom-footer ul li {
+            word-wrap: break-word;
+            margin-top: 8px;
+        }
+
+        .bottom-footer ul li a {
+            word-wrap: break-word;
+            margin-top: 13px;
+            margin-bottom: 13px;
+            font-size: 15px;
+            text-decoration: none;
+            color: orange;
+        }
+
+        .linkCTSP {
+            width: 80%;
+            margin-top: 30px;
+            margin-left: 10%;
+        }
+
+        .linkCTSP ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .linkCTSP ul li {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: gray;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .anhCTSP {
+            display: flex;
+            margin-bottom: 200px;
+        }
+
+        .ctsp button {
+            width: 40px !important;
+            height: 40px !important;
+        }
+
+        .ttsp {
+            margin-left: 150px;
+            margin-top: 100px;
+            font-size: 20px;
+        }
+
+        .ttsp * {
+            margin-bottom: 8px;
+        }
+
+        .ttsp h3 {
+            color: orange;
+        }
+
+        .ttsp span {
+            font-size: 12px;
+            margin-top: 1000px;
+        }
+
+        .abc {
+            border-top: 1px solid red;
+            width: 100%;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .abc button {
+            border: none;
+            background-color: orange;
+            line-height: 35px;
+            color: white;
+        }
+
+        .abc:hover button {
+            cursor: pointer;
+        }
+
+        .form-nhap {
+            padding: 20px;
+        }
+
+        .form-nhap input {
+            width: 100%;
+            line-height: 30px;
+        }
+
+        .form-nhap select {
+            width: 100%;
+            padding: 8px;
+        }
+
+        .from-thanhtoan {
+            padding: 20px;
+            margin-left: 50px;
+        }
+
+        .thanhtoan {
+            margin-top: 10px;
+            border-bottom: 1px solid red;
+            margin-left: 10px;
+        }
+
+        .thanhtoan:last-child {
+            border: none;
+        }
+
+        .from-thanhtoan button {
+            border: none;
+            background-color: orange;
+            line-height: 35px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .silde-img {
+            width: 80%;
+        }
+
+
+
+        .item-sl {
+            border: 1px solid gray;
+            text-align: center;
+            width: fit-content;
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+
+        .item-sl button {
+            all: unset;
+            width: 20px;
+            height: 40px;
+        }
+
+        .item-sl button:hover {
+            background-color: gray;
+        }
+
+        .item-sl input {
+            all: unset;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+            width: 50px;
+            height: 40px;
+        }
+
+        .but-add {
+            margin-left: 165px;
+            margin-top: -50px;
+
+        }
+
+        .but-add button {
+            height: 40px;
+            color: #f1f1f1;
+            background-color: #fcb919;
+            border: 10px solid #fcb919;
+        }
+
+        .but-add button:hover {
+            color: red;
+        }
+
+        .image-list {
+            display: flex;
+            justify-content: space-around;
+            margin: 2%;
+            /* padding :0px 30px; */
+        }
+
+        .image-list__item {
+            width: 98px;
+            height: 98px;
+            background-color: black;
+            border: 1px solid #ccc;
+
+        }
+
+            /* .image-list__item:first-child {
+                background-image: url(/WebBongRo/img/spNew51.jpg);
+                background-size: cover;
+            }
+
+            .image-list__item:nth-child(2) {
+                background-image: url(/WebBongRo/img/spNew53.jpg);
+                background-size: cover;
+            }
+
+            .image-list__item:nth-child(3) {
+                background-image: url(/WebBongRo/img/spNew54.jpg);
+                background-size: cover;
+            }
+
+            .image-list__item:last-child {
+                background-image: url(/WebBongRo/img/spNew55.jpg);
+                background-size: cover;
+            } */
+    </style>
+    <script src="./read.js"></script>
+</head>
+
+<body>
+    <div class="col-3 col-s-6 box">
+        <!-- <div class="sanpham giay ao">
+            <div class="img-sanpham">
+                <img src="img/QuanAo/ao1.1.jpg" alt="" id="anh_ao1">
+                <div class="quick-view">QUICK VIEW</div>
+            </div>
+            <h4 class="ten-sanpham">Bộ quần áo bóng rổ Kobe Bryant</h4>
+            <p class="gia-tien">180,000 VND</p>
+            <div class="chon-mau" id="div_ao1">
+                <button style="background-image: url(img/Ao/ao1.1.jpg);background-size: cover;" id="btchon"
+                    onclick="chonbtn(this,'anh_ao1','div_ao1')">
+                </button>
+                <button style="background-image: url(img/Ao/ao1.1.jpg);background-size: cover;" id="btchon"
+                    onclick="chonbtn(this,'anh_ao1','div_ao1')">
+                </button>
+                <button style="background-image: url(img/Ao/ao1.1.jpg);background-size: cover;" id="btchon"
+                    onclick="chonbtn(this,'anh_ao1','div_ao1')">
+                </button>
+                <button style="background-image: url(img/Ao/ao1.1.jpg);background-size: cover;" id="btchon"
+                    onclick="chonbtn(this,'anh_ao1','div_ao1')">
+                </button>
+                <button style="background-image: url(img/Ao/ao1.1.jpg);background-size: cover;" id="btchon"
+                    onclick="chonbtn(this,'anh_ao1','div_ao1')">
+                </button>
+                <button style="background-image: url(img/Ao/ao1.1.jpg);background-size: cover;" id="btchon"
+                    onclick="chonbtn(this,'anh_ao1','div_ao1')">
+                </button>
+            </div>
+            <div class="chon-size">
+                <button onclick="chonsize(this, 'anh_ao1')">L</button>
+                <button onclick="chonsize(this, 'anh_ao1')">XL</button>
+                <button onclick="chonsize(this, 'anh_ao1')">2XL</button>
+                <button onclick="chonsize(this, 'anh_ao1')">3XL</button>
+                <button onclick="chonsize(this, 'anh_ao1')">4XL</button>
+                <button onclick="chonsize(this, 'anh_ao1')">5XL</button>
+            </div>
+        </div> -->
+    </div>
+    <select id="ChonSizeQA1">
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+        <option value="4XL">4XL</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+        <option value="4XL">4XL</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        <option value="XXXL">XXXL</option>
+        <option value="4XL">4XL</option>
+    </select>
+    <script>
+        showProducts();
+    </script>
+</body>
+
+</html>
